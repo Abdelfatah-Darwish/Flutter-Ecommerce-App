@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 class LeadingPage extends StatelessWidget {
@@ -6,6 +5,8 @@ class LeadingPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Container(
+      color: const Color.fromARGB(255, 188, 23, 23),
+    );
   }
 }
