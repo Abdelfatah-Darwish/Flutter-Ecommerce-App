@@ -1,6 +1,8 @@
 import 'package:e_commerce_app/utilities/styles.dart';
 import 'package:e_commerce_app/utilities/widgets/text_form_field.dart';
+import 'package:e_commerce_app/views/widgets/primary_button.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -21,7 +23,7 @@ class _LoginPageState extends State<LoginPage> {
     return Scaffold(
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.only(left: 14.0, top: 106.0),
+          padding: const EdgeInsets.only(left: 14.0, top: 106.0, right: 14.0),
           child: Form(
             key: _formKey,
             child: Column(
@@ -71,11 +73,25 @@ class _LoginPageState extends State<LoginPage> {
                     Icon(
                       Icons.arrow_right_alt_rounded,
                       size: 24,
-                      color: Theme.of(context).colorScheme.error,
+                      color: Theme.of(context).primaryColor,
                     ),
                   ],
                 ),
-                
+                const SizedBox(height: 28),
+                PrimaryButton(
+                  text: 'LOGIN',
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const Center(
+                          child: Text('Login Successful'),
+                        ),
+                      ),
+                    );
+                  },
+                ),
+                const Spacer(),
               ],
             ),
           ),

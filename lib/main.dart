@@ -13,21 +13,8 @@ class ECommerceApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
-        primaryColor: Colors.white,
-        scaffoldBackgroundColor: Colors.white,
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: const Color(0xFFDDE5F1),
-          primary: const Color(0xFF363981),
-          secondary: const Color(0xFF3C50D4),
-          tertiary: const Color(0xFF7D4CDB),
-          error: const Color(0xFFFF4B4B),
-          surface: const Color(0xFFFFFFFF),
-          onPrimary: const Color(0xFFFFFFFF),
-          onSecondary: const Color(0xFFFFFFFF),
-          onTertiary: const Color(0xFFFFFFFF),
-          onError: const Color(0xFFFFFFFF),
-          onSurface: const Color(0xFF292929),
-        ),
+        scaffoldBackgroundColor: const Color(0xFFF9F9F9),
+        primaryColor: const Color(0xFFDB3022),
         useMaterial3: true,
       ),
       onGenerateRoute: AppRouter.onGenerateRoute,
