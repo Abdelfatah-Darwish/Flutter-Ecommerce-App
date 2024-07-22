@@ -46,6 +46,36 @@ class _LoginPageState extends State<LoginPage> {
                   labelText: 'Password',
                   validator: 'Please enter your password',
                 ),
+                const SizedBox(height: 15),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    InkWell(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const Text('Forgot Password'),
+                          ),
+                        );
+                      },
+                      child: Text(
+                        'Forgot your password?',
+                        style: TextStyle(
+                          color: Theme.of(context).colorScheme.primary,
+                          // decoration: TextDecoration.underline,
+                        ),
+                      ),
+                    ),
+                    const SizedBox(width: 10),
+                    Icon(
+                      Icons.arrow_right_alt_rounded,
+                      size: 24,
+                      color: Theme.of(context).colorScheme.error,
+                    ),
+                  ],
+                ),
+                
               ],
             ),
           ),
