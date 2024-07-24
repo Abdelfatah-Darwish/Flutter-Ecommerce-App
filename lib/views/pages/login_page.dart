@@ -43,6 +43,12 @@ class _LoginPageState extends State<LoginPage> {
                     hintText: 'Enter your email',
                     labelText: 'Email',
                     validator: 'Please enter your email',
+                    textInputAction: TextInputAction.next,
+                    onFieldSubmitted: (_) {
+                      if (_formKey.currentState!.validate()) {
+                        _passwordFocusNode.requestFocus();
+                      }
+                    },
                   ),
                   const SizedBox(height: 8),
                   CustomTextField(
@@ -51,6 +57,19 @@ class _LoginPageState extends State<LoginPage> {
                     hintText: 'Enter your password',
                     labelText: 'Password',
                     validator: 'Please enter your password',
+                    textInputAction: TextInputAction.done,
+                    onFieldSubmitted: (_) {
+                      if (_formKey.currentState!.validate()) {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const Center(
+                              child: Text('Login Successful'),
+                            ),
+                          ),
+                        );
+                      }
+                    },
                   ),
                   const SizedBox(height: 16),
                   CustomRow(
