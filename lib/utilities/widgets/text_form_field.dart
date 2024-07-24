@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 class CustomTextField extends StatelessWidget {
   final TextEditingController controller;
-  final FocusNode focusNode;
+  final FocusNode? focusNode;
   final String? labelText;
   final String? hintText;
   final String? validator;
@@ -11,7 +11,7 @@ class CustomTextField extends StatelessWidget {
   const CustomTextField({
     super.key,
     required this.controller,
-    required this.focusNode,
+    this.focusNode,
     this.labelText,
     this.hintText,
     this.validator,
