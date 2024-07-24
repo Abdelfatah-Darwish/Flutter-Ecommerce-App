@@ -1,9 +1,9 @@
-import 'package:e_commerce_app/utilities/constants/login_page_constants.dart';
-import 'package:e_commerce_app/utilities/styles.dart';
+import 'package:e_commerce_app/views/widgets/auth_header.dart';
+import 'package:e_commerce_app/views/widgets/custom_row.dart';
+import 'package:e_commerce_app/views/widgets/social_login_section.dart';
+import 'package:flutter/material.dart';
 import 'package:e_commerce_app/utilities/widgets/text_form_field.dart';
 import 'package:e_commerce_app/views/widgets/primary_button.dart';
-import 'package:e_commerce_app/views/widgets/social_account_button.dart';
-import 'package:flutter/material.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -27,16 +27,16 @@ class _LoginPageState extends State<LoginPage> {
         child: SingleChildScrollView(
           child: Padding(
             padding: EdgeInsets.only(
-              left: paddingHorizontal,
-              top: screenHeight * topPaddingFactor,
-              right: paddingHorizontal,
+              left: 16,
+              top: screenHeight * 0.130,
+              right: 16,
             ),
             child: Form(
               key: _formKey,
               child: Column(
                 children: [
-                  const _LoginHeader(),
-                  SizedBox(height: screenHeight * headerVerticalSpacingFactor),
+                  const AuthHeader(title: 'Login'),
+                  SizedBox(height: screenHeight * 0.089),
                   CustomTextField(
                     controller: _usernameController,
                     focusNode: _usernameFocusNode,
@@ -44,7 +44,7 @@ class _LoginPageState extends State<LoginPage> {
                     labelText: 'Email',
                     validator: 'Please enter your email',
                   ),
-                  const SizedBox(height: formVerticalSpacing),
+                  const SizedBox(height: 8),
                   CustomTextField(
                     controller: _passwordController,
                     focusNode: _passwordFocusNode,
@@ -52,9 +52,19 @@ class _LoginPageState extends State<LoginPage> {
                     labelText: 'Password',
                     validator: 'Please enter your password',
                   ),
-                  const SizedBox(height: paddingVertical),
-                  const _ForgotPasswordRow(),
-                  const SizedBox(height: buttonVerticalSpacing),
+                  const SizedBox(height: 16),
+                  CustomRow(
+                    displayText: 'Forgot your password?',
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const Text('Forgot Password'),
+                        ),
+                      );
+                    },
+                  ),
+                  const SizedBox(height: 32),
                   PrimaryButton(
                     text: 'LOGIN',
                     onPressed: () {
@@ -70,132 +80,26 @@ class _LoginPageState extends State<LoginPage> {
                       }
                     },
                   ),
-                  const SizedBox(height: buttonVerticalSpacing),
-                  const _RegisterRow(),
-                  SizedBox(height: screenHeight * footerVerticalSpacingFactor),
-                  const _SocialLoginSection(),
+                  const SizedBox(height: 32),
+                  CustomRow(
+                    displayText: 'Don\'t have an account? Register',
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const Text('Register'),
+                        ),
+                      );
+                    },
+                  ),
+                  SizedBox(height: screenHeight * 0.170),
+                  const SocialLoginSection(),
                 ],
               ),
             ),
           ),
         ),
       ),
-    );
-  }
-}
-
-class _LoginHeader extends StatelessWidget {
-  const _LoginHeader();
-
-  @override
-  Widget build(BuildContext context) {
-    return Align(
-      alignment: Alignment.centerLeft,
-      child: Text(
-        'Login',
-        style: Styles.headline,
-      ),
-    );
-  }
-}
-
-class _ForgotPasswordRow extends StatelessWidget {
-  const _ForgotPasswordRow();
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.end,
-      children: [
-        InkWell(
-          onTap: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => const Text('Forgot Password'),
-              ),
-            );
-          },
-          child: Text(
-            'Forgot your password?',
-            style: TextStyle(
-              color: Theme.of(context).colorScheme.primary,
-            ),
-          ),
-        ),
-        Icon(
-          Icons.arrow_right_alt_rounded,
-          size: 24,
-          color: Theme.of(context).primaryColor,
-        ),
-      ],
-    );
-  }
-}
-
-class _RegisterRow extends StatelessWidget {
-  const _RegisterRow();
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        InkWell(
-          onTap: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => const Text('Register'),
-              ),
-            );
-          },
-          child: Text(
-            'Don\'t have an account? Register',
-            style: TextStyle(
-              color: Theme.of(context).colorScheme.primary,
-            ),
-          ),
-        ),
-        Icon(
-          Icons.arrow_right_alt_rounded,
-          size: 24,
-          color: Theme.of(context).primaryColor,
-        ),
-      ],
-    );
-  }
-}
-
-class _SocialLoginSection extends StatelessWidget {
-  const _SocialLoginSection();
-
-  @override
-  Widget build(BuildContext context) {
-    return const Column(
-      children: [
-        Center(
-          child: Text(
-            'Or login with social account',
-            textAlign: TextAlign.center,
-          ),
-        ),
-        SizedBox(height: socialLoginVerticalSpacing),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            SizedBox(width: paddingHorizontal),
-            SocialAccountButton(
-              iconImage: 'assets/images/google.png',
-            ),
-            SizedBox(width: paddingHorizontal),
-            SocialAccountButton(
-              iconImage: 'assets/images/facebook.png',
-            ),
-            SizedBox(width: paddingHorizontal),
-          ],
-        ),
-      ],
     );
   }
 }
