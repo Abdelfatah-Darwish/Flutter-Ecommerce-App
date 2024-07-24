@@ -15,12 +15,12 @@ class SignUpPage extends StatefulWidget {
 class _SignUpPageState extends State<SignUpPage> {
   final TextEditingController _usernameController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
-
   final TextEditingController _passwordController = TextEditingController();
+
   final FocusNode _usernameFocusNode = FocusNode();
   final FocusNode _emailFocusNode = FocusNode();
-
   final FocusNode _passwordFocusNode = FocusNode();
+
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   @override
@@ -47,6 +47,12 @@ class _SignUpPageState extends State<SignUpPage> {
                     hintText: 'Enter your name',
                     labelText: 'Name',
                     validator: 'Please enter your name',
+                    textInputAction: TextInputAction.next,
+                    onFieldSubmitted: (_) {
+                      if (_formKey.currentState!.validate()) {
+                        _emailFocusNode.requestFocus();
+                      }
+                    },
                   ),
                   const SizedBox(height: 8),
                   CustomTextField(
@@ -55,6 +61,12 @@ class _SignUpPageState extends State<SignUpPage> {
                     hintText: 'Enter your email',
                     labelText: 'Email',
                     validator: 'Please enter your email',
+                    textInputAction: TextInputAction.next,
+                    onFieldSubmitted: (_) {
+                      if (_formKey.currentState!.validate()) {
+                        _passwordFocusNode.requestFocus();
+                      }
+                    },
                   ),
                   const SizedBox(height: 8),
                   CustomTextField(
@@ -63,6 +75,19 @@ class _SignUpPageState extends State<SignUpPage> {
                     hintText: 'Enter your password',
                     labelText: 'Password',
                     validator: 'Please enter your password',
+                    textInputAction: TextInputAction.done,
+                    onFieldSubmitted: (_) {
+                      if (_formKey.currentState!.validate()) {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const Center(
+                              child: Text('Login Successful'),
+                            ),
+                          ),
+                        );
+                      }
+                    },
                   ),
                   const SizedBox(height: 16),
                   CustomRow(

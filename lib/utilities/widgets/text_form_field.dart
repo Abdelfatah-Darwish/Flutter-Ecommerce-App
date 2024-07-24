@@ -1,4 +1,3 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 
 class CustomTextField extends StatelessWidget {
@@ -7,6 +6,8 @@ class CustomTextField extends StatelessWidget {
   final String? labelText;
   final String? hintText;
   final String? validator;
+  final TextInputAction? textInputAction;
+  final Function(String)? onFieldSubmitted;
 
   const CustomTextField({
     super.key,
@@ -15,6 +16,8 @@ class CustomTextField extends StatelessWidget {
     this.labelText,
     this.hintText,
     this.validator,
+    this.textInputAction,
+    this.onFieldSubmitted,
   });
 
   @override
@@ -22,6 +25,8 @@ class CustomTextField extends StatelessWidget {
     return TextFormField(
       controller: controller,
       focusNode: focusNode,
+      textInputAction: textInputAction,
+      onFieldSubmitted: onFieldSubmitted,
       decoration: InputDecoration(
         labelText: labelText,
         hintText: hintText,

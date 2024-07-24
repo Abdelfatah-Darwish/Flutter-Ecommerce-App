@@ -10,7 +10,7 @@ class SocialLoginSection extends StatelessWidget {
       children: [
         Center(
           child: Text(
-            'Or login with social account',
+            'Or sign up with social account',
             textAlign: TextAlign.center,
           ),
         ),
