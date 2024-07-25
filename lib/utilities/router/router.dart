@@ -1,3 +1,4 @@
+import 'package:e_commerce_app/views/pages/button_navbar.dart';
 import 'package:e_commerce_app/views/pages/leading_page.dart';
 import 'package:e_commerce_app/views/pages/login_page.dart';
 import 'package:e_commerce_app/views/pages/sign_up_page.dart';
@@ -13,6 +14,9 @@ class AppRouter {
 
       case AppRoutes.signPage:
         return MaterialPageRoute(builder: (_) => const SignUpPage());
+
+      case AppRoutes.buttonNavBar:
+        return MaterialPageRoute(builder: (_) => const HomeScreen());
 
       case AppRoutes.leadingPageRoute:
         return MaterialPageRoute(builder: (_) => const LeadingPage());

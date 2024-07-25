@@ -18,7 +18,7 @@ class ECommerceApp extends StatelessWidget {
         useMaterial3: true,
       ),
       onGenerateRoute: AppRouter.onGenerateRoute,
-      initialRoute: AppRoutes.signPage,
+      initialRoute: AppRoutes.buttonNavBar,
       debugShowCheckedModeBanner: false,
       title: 'E-Commerce App',
     );
