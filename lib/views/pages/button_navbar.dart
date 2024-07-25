@@ -1,3 +1,4 @@
+import 'package:e_commerce_app/views/pages/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
 
@@ -19,7 +20,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   List<Widget> _buildScreens() {
     return [
-      Container(color: Colors.red), // Home
+      const HomePage(), // Home
       Container(color: Colors.green), // Shop
       Container(color: Colors.blue), // Bag
       Container(color: Colors.yellow), // Favorites
