@@ -1,3 +1,4 @@
+import 'package:e_commerce_app/utilities/styles.dart';
 import 'package:flutter/material.dart';
 
 class ImageWithText extends StatelessWidget {
@@ -29,16 +30,12 @@ class ImageWithText extends StatelessWidget {
           color: Colors.black.withOpacity(0.12),
         ),
 
-        const Positioned(
+        Positioned(
           bottom: 16, // Adjust as necessary
           left: 26, // Adjust as necessary
           child: Text(
             'Street clothes',
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 34,
-              fontWeight: FontWeight.bold,
-            ),
+            style: Styles.textStyle_34White,
           ),
         ),
       ],

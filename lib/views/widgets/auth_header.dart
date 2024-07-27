@@ -11,7 +11,7 @@ class AuthHeader extends StatelessWidget {
       alignment: Alignment.centerLeft,
       child: Text(
         title,
-        style: Styles.headline,
+        style: Styles.textStyle_34Black,
       ),
     );
   }
